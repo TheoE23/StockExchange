@@ -1,0 +1,12 @@
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\Debug\net6.0\Accounts.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\Debug\net6.0\Accounts.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\Debug\net6.0\Accounts.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\Debug\net6.0\Accounts.Infrastructure.AssemblyInfo.cs
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\Debug\net6.0\Accounts.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\bin\Debug\net6.0\Accounts.Infrastructure.deps.json
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\bin\Debug\net6.0\Accounts.Infrastructure.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\bin\Debug\net6.0\Accounts.Infrastructure.pdb
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\Debug\net6.0\Accounts.Infrastructure.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\Debug\net6.0\refint\Accounts.Infrastructure.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\Debug\net6.0\Accounts.Infrastructure.pdb
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\Debug\net6.0\ref\Accounts.Infrastructure.dll
