@@ -88,6 +88,16 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "StockExchange.Gateway.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/StockExchange.Gateway.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StockExchange.Gateway.Services.dll": {}
+        }
       }
     }
   },
@@ -216,27 +226,38 @@
         "swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "StockExchange.Gateway.Services/1.0.0": {
+      "type": "project",
+      "path": "../StockExchange.Gateway.Services/StockExchange.Gateway.Services.csproj",
+      "msbuildProject": "../StockExchange.Gateway.Services/StockExchange.Gateway.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "StockExchange.Gateway.Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Teodor\\.nuget\\packages\\": {}
+    "C:\\Users\\own\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.Gateway\\StockExchange.Gateway.csproj",
+      "projectUniqueName": "C:\\Users\\own\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway\\StockExchange.Gateway.csproj",
       "projectName": "StockExchange.Gateway",
-      "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.Gateway\\StockExchange.Gateway.csproj",
-      "packagesPath": "C:\\Users\\Teodor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.Gateway\\obj\\",
+      "projectPath": "C:\\Users\\own\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway\\StockExchange.Gateway.csproj",
+      "packagesPath": "C:\\Users\\own\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\own\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Teodor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\own\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -249,7 +270,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\own\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway.Services\\StockExchange.Gateway.Services.csproj": {
+              "projectPath": "C:\\Users\\own\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway.Services\\StockExchange.Gateway.Services.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -286,7 +311,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
