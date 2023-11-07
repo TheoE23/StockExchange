@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StockExchange.Gateway.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class StockAPIController : ControllerBase
+    public class StockAPIController : ApplicationBaseController
     {
 
     }

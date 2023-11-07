@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StockExchange.Gateway.Services
-build_property.ProjectDir = C:\Users\own\source\repos\StockExchange\StockExchange\StockExchange.Gateway.Services\
+build_property.ProjectDir = C:\Users\Teodor\source\repos\StockExchange\StockExchange\StockExchange.Gateway.Services\

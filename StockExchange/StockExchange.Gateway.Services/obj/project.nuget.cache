@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3QOH6zna2Cj9TDIUQiU/V3VkUlZnkHO/MwG4D/cgHuNqk4TbMBwKg7LjA9BNVZbwkB5eeEXuvXmJrVJX+Ap1vg==",
+  "dgSpecHash": "frmkF02OaOUBo9/pRsNmdz//Qa/mIn9aSQd8zjdImJ9qeIp7bxf/iA9ykvLHtDiGLdodb9pA4/rXR+CMglgTfw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\own\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway.Services\\StockExchange.Gateway.Services.csproj",
+  "projectFilePath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway.Services\\StockExchange.Gateway.Services.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -8,24 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\own\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Teodor\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\own\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway.Services\\StockExchange.Gateway.Services.csproj",
+      "projectUniqueName": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway.Services\\StockExchange.Gateway.Services.csproj",
       "projectName": "StockExchange.Gateway.Services",
-      "projectPath": "C:\\Users\\own\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway.Services\\StockExchange.Gateway.Services.csproj",
-      "packagesPath": "C:\\Users\\own\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\own\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway.Services\\obj\\",
+      "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway.Services\\StockExchange.Gateway.Services.csproj",
+      "packagesPath": "C:\\Users\\Teodor\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway.Services\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\own\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Teodor\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -66,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
