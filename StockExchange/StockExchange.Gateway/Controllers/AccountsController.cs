@@ -15,5 +15,10 @@ namespace StockExchange.Gateway.Controllers
         {
             return this.NoContent();
         }
+        [HttpGet("FindByID")]
+        public IActionResult FindByID(int id)
+        {
+            return this.NoContent();
+        }
     }
 }
