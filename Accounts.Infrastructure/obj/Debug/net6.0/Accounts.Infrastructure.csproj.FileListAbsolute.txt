@@ -10,3 +10,6 @@ C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\De
 C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\Debug\net6.0\refint\Accounts.Infrastructure.dll
 C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\Debug\net6.0\Accounts.Infrastructure.pdb
 C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\Debug\net6.0\ref\Accounts.Infrastructure.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\bin\Debug\net6.0\Accounts.Domain.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\bin\Debug\net6.0\Accounts.Domain.pdb
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Infrastructure\obj\Debug\net6.0\Accounts.Infrastructure.csproj.CopyComplete

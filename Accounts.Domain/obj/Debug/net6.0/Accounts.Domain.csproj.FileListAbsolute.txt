@@ -1,0 +1,12 @@
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Domain\bin\Debug\net6.0\Accounts.Domain.deps.json
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Domain\bin\Debug\net6.0\Accounts.Domain.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Domain\bin\Debug\net6.0\Accounts.Domain.pdb
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Domain\obj\Debug\net6.0\Accounts.Domain.csproj.AssemblyReference.cache
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Domain\obj\Debug\net6.0\Accounts.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Domain\obj\Debug\net6.0\Accounts.Domain.AssemblyInfoInputs.cache
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Domain\obj\Debug\net6.0\Accounts.Domain.AssemblyInfo.cs
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Domain\obj\Debug\net6.0\Accounts.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Domain\obj\Debug\net6.0\Accounts.Domain.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Domain\obj\Debug\net6.0\refint\Accounts.Domain.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Domain\obj\Debug\net6.0\Accounts.Domain.pdb
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.Domain\obj\Debug\net6.0\ref\Accounts.Domain.dll

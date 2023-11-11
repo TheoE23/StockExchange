@@ -19,8 +19,7 @@ namespace Accounts.Infrastructure.DatabaseConnection
                 
                     connection.Open();
                 return true;
-               
-                connection.Close();
+              
             }
         }
     }
