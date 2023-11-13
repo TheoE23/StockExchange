@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Accounts.Infrastructure.Repositories
 {
-    public class WalletRepository : Repository<WalletsDTO>,IWalletRepository
+    public class WalletRepository : Repository<Wallets>,IWalletRepository
     {
         public WalletRepository(string connectionString) : base(connectionString)
         {
@@ -75,9 +75,9 @@ namespace Accounts.Infrastructure.Repositories
 
     
 
-        protected override WalletsDTO Map(SqlDataReader reader)
+        protected override Wallets Map(SqlDataReader reader)
         {
-            return new WalletsDTO
+            return new Wallets
             {
                 WalletID = reader.GetInt32(reader.GetOrdinal("WalletID")),
                 UserID = reader.GetInt32(reader.GetOrdinal("UserID")),
@@ -87,6 +87,53 @@ namespace Accounts.Infrastructure.Repositories
                 Quantity = reader.GetInt32(reader.GetOrdinal("Quantity")),
                 PurchasePrice = reader.GetDecimal(reader.GetOrdinal("PurchasePrice"))
             };
+        }
+
+        public async Task<IEnumerable<Wallets>> GetAllAsync()
+        {
+            List<Wallets> wallets = new List<Wallets>();
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand($"SELECT * FROM {TableName}", connection))
+                {
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var wallet = Map(reader);
+                            wallets.Add(wallet);
+                        }
+                    }
+                }
+            }
+
+            return wallets;
+        }
+
+        public async Task<Wallets> GetByIdAsync(int id)
+        {
+            Wallets wallet = null;
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand($"SELECT * FROM {TableName} WHERE WalletID = @WalletID", connection))
+                {
+                    command.Parameters.AddWithValue("@WalletID", id);
+
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            wallet = Map(reader);
+                        }
+                    }
+                }
+            }
+
+            return wallet;
         }
 
     }

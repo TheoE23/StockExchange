@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Accounts.API\Accounts.API.csproj" />
     <ProjectReference Include="..\Accounts.Domain\Accounts.Domain.csproj" />
   </ItemGroup>
 

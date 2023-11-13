@@ -13,6 +13,6 @@ namespace Accounts.Infrastructure.DTO
         public decimal CurrentPrice { get; set; }
         public int Quantity { get; set; }
       
-        public string Currency { get; set; }
+        public string? Currency { get; set; }
     }
 }

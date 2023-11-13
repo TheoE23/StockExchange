@@ -11,7 +11,7 @@ using Accounts.Infrastructure.DTO;
 
 namespace Accounts.Infrastructure.Repositories
 {
-    public class TransactionRepository : Repository<TransactionsDTO>,ITransactionRepository
+    public class TransactionRepository : Repository<TransactionsDTO>, ITransactionRepository
     {
         public TransactionRepository(string connectionString) : base(connectionString)
         {
@@ -56,39 +56,39 @@ namespace Accounts.Infrastructure.Repositories
                 TransactionDate = reader.GetDateTime(reader.GetOrdinal("TransactionDate"))
             };
         }
-       
-            
-            private Transactions MapToEntity(TransactionsDTO dto)
-            {
-                return new Transactions
-                {
-                    TransactionID = dto.TransactionID,
-                    UserID = dto.UserID,
-                    UserName = dto.UserName,
-                    StockID = dto.StockID,
-                    StockName = dto.StockName,
-                    Quantity = dto.Quantity,
-                    Price = dto.Price,
-                    TransactionType = dto.TransactionType,
-                    TransactionDate = dto.TransactionDate
-                };
-            }
 
-            private TransactionsDTO MapToDTO(Transactions entity)
+
+        private Transactions MapToEntity(TransactionsDTO transactions)
+        {
+            return new Transactions
             {
-                return new TransactionsDTO
-                {
-                    TransactionID = entity.TransactionID,
-                    UserID = entity.UserID,
-                    UserName = entity.UserName,
-                    StockID = entity.StockID,
-                    StockName = entity.StockName,
-                    Quantity = entity.Quantity,
-                    Price = entity.Price,
-                    TransactionType = entity.TransactionType,
-                    TransactionDate = entity.TransactionDate
-                };
-            }
+                TransactionID = transactions.TransactionID,
+                UserID = transactions.UserID,
+                UserName = transactions.UserName,
+                StockID = transactions.StockID,
+                StockName = transactions.StockName,
+                Quantity = transactions.Quantity,
+                Price = transactions.Price,
+                TransactionType = transactions.TransactionType,
+                TransactionDate = transactions.TransactionDate
+            };
+        }
+
+        private TransactionsDTO MapToDTO(Transactions transactions)
+        {
+            return new TransactionsDTO
+            {
+                TransactionID = transactions.TransactionID,
+                UserID = transactions.UserID,
+                UserName = transactions.UserName,
+                StockID = transactions.StockID,
+                StockName = transactions.StockName,
+                Quantity = transactions.Quantity,
+                Price = transactions.Price,
+                TransactionType = transactions.TransactionType,
+                TransactionDate = transactions.TransactionDate
+            };
+        }
 
         public async Task CreateAsync(Transactions transactions)
         {
@@ -127,8 +127,56 @@ namespace Accounts.Infrastructure.Repositories
             }
         }
 
-    }
+        public async Task<IEnumerable<Transactions>> GetAllAsync()
+        {
+            List<Transactions> transactions = new List<Transactions>();
 
+            using (var connection = new SqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand($"SELECT * FROM {TableName}", connection))
+                {
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var transaction = Map(reader);
+                            transactions.Add(MapToEntity(transaction));
+                        }
+                    }
+                }
+            }
+
+            return transactions;
+        }
+
+        public async Task<Transactions> GetByIdAsync(int id)
+        {
+            Transactions transaction = null;
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand($"SELECT * FROM {TableName} WHERE TransactionID = @TransactionID", connection))
+                {
+                    command.Parameters.AddWithValue("@TransactionID", id);
+
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            var transactionEntity = Map(reader);
+                            transaction = MapToEntity(transactionEntity);
+                        }
+                    }
+                }
+            }
+
+            return transaction;
+        }
+
+        
+    }
 
     }
 

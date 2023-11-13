@@ -12,7 +12,7 @@ using Accounts.Infrastructure.DTO;
 
 namespace Accounts.Infrastructure.Repositories
 {
-    public class UserRepository : Repository<UsersDTO>,IUserRepository
+    public class UserRepository : Repository<Users>,IUserRepository
     {
         public UserRepository(string connectionString) : base(connectionString)
         {
@@ -52,9 +52,9 @@ namespace Accounts.Infrastructure.Repositories
 
 
 
-        protected override UsersDTO Map(SqlDataReader reader)
+        protected override Users Map(SqlDataReader reader)
         {
-            return new UsersDTO
+            return new Users
             {
                 UserID = reader.GetInt32(reader.GetOrdinal("UserID")),
                 UserName = reader.GetString(reader.GetOrdinal("UserName")),
@@ -62,5 +62,53 @@ namespace Accounts.Infrastructure.Repositories
                 Birthday = reader.GetDateTime(reader.GetOrdinal("Birthday"))
             };
         }
+
+        public async Task<IEnumerable<Users>> GetAllAsync()
+        {
+            List<Users> users = new List<Users>();
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand($"SELECT * FROM {TableName}", connection))
+                {
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var user = Map(reader);
+                            users.Add(user);
+                        }
+                    }
+                }
+            }
+
+            return users;
+        }
+
+        public async Task<Users> GetByIdAsync(int id)
+        {
+            Users user = null;
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand($"SELECT * FROM {TableName} WHERE UserID = @UserID", connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", id);
+
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            user = Map(reader);
+                        }
+                    }
+                }
+            }
+
+            return user;
+        }
+
     }
 }

@@ -11,11 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Accounts.Domain\Accounts.Domain.csproj" />
+    <ProjectReference Include="..\Accounts.Infrastructure\Accounts.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

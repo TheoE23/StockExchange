@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Accounts.Infrastructure.Repositories
 {
-    public class StockRepository : Repository<StocksDTO>,IStockRepository
+    public class StockRepository : Repository<Stocks>,IStockRepository
     {
        
         public StockRepository(string connectionString) : base(connectionString)
@@ -61,7 +61,7 @@ namespace Accounts.Infrastructure.Repositories
                     {
                         if (await reader.ReadAsync())
                         {
-                            var StocksDTO = Map(reader);
+                            var StocksDTO = MapToDTO(reader);
                             return MapToEntity(StocksDTO);
                         }
                     }
@@ -69,9 +69,10 @@ namespace Accounts.Infrastructure.Repositories
                 return null;
             }
         }
-        protected override StocksDTO Map(SqlDataReader reader)
+
+        protected override Stocks Map(SqlDataReader reader)
         {
-            return new StocksDTO
+            return new Stocks
             {
                 StockID = reader.GetInt32(reader.GetOrdinal("StockID")),
                 StockName = reader.GetString(reader.GetOrdinal("StockName")),

@@ -12,7 +12,7 @@ using System.Security.Principal;
 
 namespace Accounts.Infrastructure.Repositories
 {
-    public class AccountRepository : Repository<AccountsDTO>,IAccountRepository
+    public class AccountRepository : Repository<Account>,IAccountRepository
     {
         public AccountRepository(string connectionString) : base(connectionString)
         {
@@ -94,9 +94,9 @@ namespace Accounts.Infrastructure.Repositories
             }
         }
 
-        protected override AccountsDTO Map(SqlDataReader reader)
+        protected override Account Map(SqlDataReader reader)
         {
-            return new AccountsDTO
+            return new Account
             {
                 AccountID = reader.GetInt32(reader.GetOrdinal("AccountID")),
                 UserID = reader.GetInt32(reader.GetOrdinal("UserID")),
@@ -104,8 +104,59 @@ namespace Accounts.Infrastructure.Repositories
                 Currency = reader.IsDBNull(reader.GetOrdinal("Currency")) ? null : reader.GetString(reader.GetOrdinal("Currency"))
             };
         }
+       
 
-      
+
+
+
+        public async Task<IEnumerable<Account>> GetAllAsync()
+        {
+            List<Account> accounts = new List<Account>();
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand($"SELECT * FROM {TableName}", connection))
+                {
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var account = Map(reader);
+                            accounts.Add(account);
+                        }
+                    }
+                }
+            }
+
+            return accounts;
+        }
+
+        public async Task<Account> GetByIdAsync(int id)
+        {
+            Account account = null;
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand($"SELECT * FROM {TableName} WHERE AccountID = @AccountID", connection))
+                {
+                    command.Parameters.AddWithValue("@AccountID", id);
+
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            account = Map(reader);
+                        }
+                    }
+                }
+            }
+
+            return account;
+        }
+
+
     }
 
 }

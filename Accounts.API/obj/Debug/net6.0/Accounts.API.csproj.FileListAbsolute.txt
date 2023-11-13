@@ -27,3 +27,13 @@ C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\obj\Debug\net6.0\
 C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\obj\Debug\net6.0\ref\Accounts.API.dll
 C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\bin\Debug\net6.0\Accounts.Domain.dll
 C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\bin\Debug\net6.0\Accounts.Domain.pdb
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\bin\Debug\net6.0\Accounts.Infrastructure.dll
+C:\Users\Remi\Pictures\Visual Studio\Accounts.API\Accounts.API\bin\Debug\net6.0\Accounts.Infrastructure.pdb
