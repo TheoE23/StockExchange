@@ -13,39 +13,33 @@ using Accounts.Infrastructure.DTO;
 
 namespace Accounts.Infrastructure.Repositories
 {
-    
         public abstract class Repository<T>
         {
-            public string connectionString;
-
+            protected readonly string connectionString;
             public Repository(string _connectionString)
             {
                 connectionString = _connectionString;
             }
-
             protected abstract string TableName { get; }
-
-        public virtual async Task<IEnumerable<T>> GetAllAsync()
-        {
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (var command = new SqlCommand($"SELECT * FROM {TableName}", connection))
-                using (var reader = await command.ExecuteReaderAsync())
+             public virtual async Task<IEnumerable<T>> GetAllAsync()
+             {
+                using (var connection = new SqlConnection(connectionString))
                 {
-                    var entities = new List<T>();
+                    connection.Open();
 
-                    while (await reader.ReadAsync())
+                    using (var command = new SqlCommand($"SELECT * FROM {TableName}", connection))
+                    using (var reader = await command.ExecuteReaderAsync())
                     {
-                        entities.Add( Map(reader));
+                        var entities = new List<T>();
+
+                       while (await reader.ReadAsync())
+                       {
+                                  entities.Add( Map(reader));
+                       }
+                       return entities;
                     }
-
-                    return entities;
                 }
-            }
-        }
-
+             }
         public virtual async Task<T> GetByIdAsync(int id)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -64,13 +58,9 @@ namespace Accounts.Infrastructure.Repositories
                         }
                     }
                 }
-
                 return default;
             }
         }
-
-     
-
         public virtual async Task DeleteAsync(int ID)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -86,9 +76,6 @@ namespace Accounts.Infrastructure.Repositories
             }
         }
         protected abstract T Map(SqlDataReader reader);
-
-
-
     }
 
 }

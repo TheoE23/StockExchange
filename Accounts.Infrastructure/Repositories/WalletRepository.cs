@@ -12,12 +12,14 @@ namespace Accounts.Infrastructure.Repositories
 {
     public class WalletRepository : Repository<Wallets>,IWalletRepository
     {
-        public WalletRepository(string connectionString) : base(connectionString)
+        private readonly DatabaseConnections.DatabaseConnection _dbConnection;
+
+        public WalletRepository(DatabaseConnections.DatabaseConnection dbConnection)
+            : base(dbConnection.ConnectionString)
         {
+            _dbConnection = dbConnection;
         }
-
         protected override string TableName => "wallets";
-
         public  async Task CreateAsync(Wallets wallets)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -31,9 +33,6 @@ namespace Accounts.Infrastructure.Repositories
                 await command.ExecuteNonQueryAsync();
             }
         }
-
-        
-
         public async Task<decimal> GetTotalPurchasePriceForWalletAsync(int WalletID)
         {
             decimal totalPurchasePrice = 0;
@@ -55,9 +54,6 @@ namespace Accounts.Infrastructure.Repositories
             }
             return totalPurchasePrice;
         }
-
-
-
         public async Task UpdateAsync(Wallets wallets)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -72,9 +68,6 @@ namespace Accounts.Infrastructure.Repositories
                 await command.ExecuteNonQueryAsync();
             }
         }
-
-    
-
         protected override Wallets Map(SqlDataReader reader)
         {
             return new Wallets
@@ -88,7 +81,6 @@ namespace Accounts.Infrastructure.Repositories
                 PurchasePrice = reader.GetDecimal(reader.GetOrdinal("PurchasePrice"))
             };
         }
-
         public async Task<IEnumerable<Wallets>> GetAllAsync()
         {
             List<Wallets> wallets = new List<Wallets>();
@@ -108,10 +100,8 @@ namespace Accounts.Infrastructure.Repositories
                     }
                 }
             }
-
             return wallets;
         }
-
         public async Task<Wallets> GetByIdAsync(int id)
         {
             Wallets wallet = null;
@@ -132,7 +122,6 @@ namespace Accounts.Infrastructure.Repositories
                     }
                 }
             }
-
             return wallet;
         }
 

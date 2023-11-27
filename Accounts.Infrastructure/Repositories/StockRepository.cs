@@ -13,21 +13,19 @@ namespace Accounts.Infrastructure.Repositories
 {
     public class StockRepository : Repository<Stocks>,IStockRepository
     {
-       
-        public StockRepository(string connectionString) : base(connectionString)
+        private readonly DatabaseConnections.DatabaseConnection _dbConnection;
+        private readonly ICurrencyConverter _currencyConverter;
+        public StockRepository(DatabaseConnections.DatabaseConnection dbConnection, ICurrencyConverter currencyConverter)
+            : base(dbConnection.ConnectionString)
         {
-          
+            _dbConnection = dbConnection;
+            _currencyConverter = currencyConverter;
         }
-
         protected override string TableName => "stocks";
-
-
-       
-
         public async Task UpdateAsync(Stocks stocks)
         {
              using (var connection = new SqlConnection(connectionString))
-            {
+             {
                 connection.Open();
                 using (var command = new SqlCommand($"UPDATE {TableName} SET StockName = @StockName, CurrentPrice = @CurrentPrice, Quantity = @Quantity, Currency = @Currency WHERE StockID = @StockID", connection))
                 {
@@ -43,12 +41,10 @@ namespace Accounts.Infrastructure.Repositories
                     {
                         command.Parameters.AddWithValue("@Currency", DBNull.Value);
                     }
-
                     await command.ExecuteNonQueryAsync();
                 }
-            }
+             }
         }
-
         public async Task<Stocks> GetStockByNameAsync(string StockName)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -69,7 +65,6 @@ namespace Accounts.Infrastructure.Repositories
                 return null;
             }
         }
-
         protected override Stocks Map(SqlDataReader reader)
         {
             return new Stocks
@@ -81,7 +76,6 @@ namespace Accounts.Infrastructure.Repositories
                 Currency = reader.GetString(reader.GetOrdinal("Currency"))
             };
         }
-
         private StocksDTO MapToDTO(SqlDataReader reader)
         {
             return new StocksDTO
@@ -104,7 +98,6 @@ namespace Accounts.Infrastructure.Repositories
                 Currency = dto.Currency
             };
         }
-
         public async Task CreateAsync(Stocks stocks)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -128,7 +121,5 @@ namespace Accounts.Infrastructure.Repositories
                 }
             }
         }
-
-      
     }
 }

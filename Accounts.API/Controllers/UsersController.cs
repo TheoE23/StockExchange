@@ -1,5 +1,6 @@
 ﻿using Accounts.Domain.Entities;
 using Accounts.Domain.Interfaces;
+using Accounts.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Accounts.API.Controllers
@@ -8,11 +9,11 @@ namespace Accounts.API.Controllers
     [ApiController]
     public class UsersController : BaseController<Users>
     {
-        public UsersController(IUserRepository repository) : base(repository)
+        private readonly IUserRepository _userRepository;
+
+        public UsersController(IUserRepository userRepository) : base(userRepository)
         {
+            _userRepository = userRepository;
         }
-
-
-
     }
-   }
+}

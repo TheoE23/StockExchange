@@ -13,12 +13,13 @@ namespace Accounts.Infrastructure.Repositories
 {
     public class TransactionRepository : Repository<TransactionsDTO>, ITransactionRepository
     {
-        public TransactionRepository(string connectionString) : base(connectionString)
+        private readonly DatabaseConnections.DatabaseConnection _dbConnection;
+        public TransactionRepository(DatabaseConnections.DatabaseConnection dbConnection)
+            : base(dbConnection.ConnectionString)
         {
+            _dbConnection = dbConnection;
         }
-
         protected override string TableName => "Transactions";
-
         public IEnumerable<Transactions> GetTransactionsByType(string transactionType)
         {
             var transactions = new List<Transactions>();
@@ -40,7 +41,6 @@ namespace Accounts.Infrastructure.Repositories
             }
             return transactions;
         }
-
         protected override TransactionsDTO Map(SqlDataReader reader)
         {
             return new TransactionsDTO
@@ -56,8 +56,6 @@ namespace Accounts.Infrastructure.Repositories
                 TransactionDate = reader.GetDateTime(reader.GetOrdinal("TransactionDate"))
             };
         }
-
-
         private Transactions MapToEntity(TransactionsDTO transactions)
         {
             return new Transactions
@@ -73,7 +71,6 @@ namespace Accounts.Infrastructure.Repositories
                 TransactionDate = transactions.TransactionDate
             };
         }
-
         private TransactionsDTO MapToDTO(Transactions transactions)
         {
             return new TransactionsDTO
@@ -89,7 +86,6 @@ namespace Accounts.Infrastructure.Repositories
                 TransactionDate = transactions.TransactionDate
             };
         }
-
         public async Task CreateAsync(Transactions transactions)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -107,7 +103,6 @@ namespace Accounts.Infrastructure.Repositories
                 await command.ExecuteNonQueryAsync();
             }
         }
-
         public async Task UpdateAsync(Transactions transactions)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -126,7 +121,6 @@ namespace Accounts.Infrastructure.Repositories
                 await command.ExecuteNonQueryAsync();
             }
         }
-
         public async Task<IEnumerable<Transactions>> GetAllAsync()
         {
             List<Transactions> transactions = new List<Transactions>();
@@ -146,10 +140,8 @@ namespace Accounts.Infrastructure.Repositories
                     }
                 }
             }
-
             return transactions;
         }
-
         public async Task<Transactions> GetByIdAsync(int id)
         {
             Transactions transaction = null;
@@ -171,12 +163,8 @@ namespace Accounts.Infrastructure.Repositories
                     }
                 }
             }
-
             return transaction;
         }
-
-        
     }
-
-    }
+}
 

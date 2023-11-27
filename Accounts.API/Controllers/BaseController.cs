@@ -23,13 +23,6 @@ namespace Accounts.API.Controllers
             return Ok(entity);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllAsync()
-        {
-            var entities = await _repository.GetAllAsync();
-            return Ok(entities);
-        }
-
         [HttpPost]
         public async Task<IActionResult> CreateAsync([FromBody] T entity)
         {

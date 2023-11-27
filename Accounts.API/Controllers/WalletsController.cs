@@ -8,9 +8,12 @@ namespace Accounts.API.Controllers
     [ApiController]
     public class WalletsController : BaseController<Wallets>
     {
-        public WalletsController(IWalletRepository repository) : base(repository)
+        private readonly IWalletRepository _walletRepository;
+
+        public WalletsController(IWalletRepository walletRepository) : base(walletRepository)
         {
+            _walletRepository = walletRepository;
         }
     }
-
 }
+

@@ -9,7 +9,6 @@ namespace Accounts.Domain.Interfaces
 {
     public interface IAccountRepository : IRepository<Account>
     {
-       
         Task<decimal> GetBalanceAsync(int UserID);
     }
 }

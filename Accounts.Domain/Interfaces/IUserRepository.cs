@@ -1,17 +1,18 @@
 ﻿using Accounts.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Accounts.Domain.Interfaces
 {
     public interface IUserRepository : IRepository<Users>
-    { 
+    {
        
-    
+        Task<Users> GetByUsername(string username);
+        Task CreateAsync(Users users);
+        Task UpdateAsync(Users users);
+        Task<IEnumerable<Users>> GetAllAsync();
+        Task<Users> GetByIdAsync(int ID);
+        Task<Users> GetUserByUsernameAndPasswordAsync(string username, string password);
+
     }
 
 }

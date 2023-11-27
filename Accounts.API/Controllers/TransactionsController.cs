@@ -8,10 +8,12 @@ namespace Accounts.API.Controllers
     [ApiController]
     public class TransactionsController : BaseController<Transactions>
     {
-        public TransactionsController(ITransactionRepository repository) : base(repository)
+        private readonly ITransactionRepository _transactionRepository;
+
+        public TransactionsController(ITransactionRepository transactionRepository) : base(transactionRepository)
         {
+            _transactionRepository = transactionRepository;
         }
     }
-
-
 }
+

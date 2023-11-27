@@ -5,13 +5,15 @@ using Microsoft.AspNetCore.Mvc;
 namespace Accounts.API.Controllers
 {
     [Route("api/accounts")]
-        [ApiController]
+    [ApiController]
     public class AccountsController : BaseController<Account>
     {
-        
-        public AccountsController(IAccountRepository repository) : base(repository)
+        private readonly IAccountRepository _accountRepository;
+
+        public AccountsController(IAccountRepository accountRepository) : base(accountRepository)
         {
+            _accountRepository = accountRepository;
         }
     }
-
 }
+

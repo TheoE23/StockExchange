@@ -14,14 +14,15 @@ namespace Accounts.Infrastructure.Repositories
 {
     public class AccountRepository : Repository<Account>,IAccountRepository
     {
-        public AccountRepository(string connectionString) : base(connectionString)
+        private readonly DatabaseConnections.DatabaseConnection _dbConnection;
+        private readonly ICurrencyConverter _currencyConverter;
+        public AccountRepository(DatabaseConnections.DatabaseConnection dbConnection, ICurrencyConverter currencyConverter)
+            : base(dbConnection.ConnectionString)
         {
+            _dbConnection = dbConnection;
+            _currencyConverter = currencyConverter;
         }
-
         protected override string TableName => "accounts";
-
-       
-
         public async Task CreateAsync(Account accounts)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -44,7 +45,6 @@ namespace Accounts.Infrastructure.Repositories
                 }
             }
         }
-
         public async Task<decimal> GetBalanceAsync(int UserID)
         {
             decimal totalBalance = 0;
@@ -67,9 +67,6 @@ namespace Accounts.Infrastructure.Repositories
             }
             return totalBalance;
         }
-
-
-
         public async Task UpdateAsync(Account accounts)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -93,7 +90,6 @@ namespace Accounts.Infrastructure.Repositories
                 }
             }
         }
-
         protected override Account Map(SqlDataReader reader)
         {
             return new Account
@@ -104,11 +100,6 @@ namespace Accounts.Infrastructure.Repositories
                 Currency = reader.IsDBNull(reader.GetOrdinal("Currency")) ? null : reader.GetString(reader.GetOrdinal("Currency"))
             };
         }
-       
-
-
-
-
         public async Task<IEnumerable<Account>> GetAllAsync()
         {
             List<Account> accounts = new List<Account>();
@@ -131,7 +122,6 @@ namespace Accounts.Infrastructure.Repositories
 
             return accounts;
         }
-
         public async Task<Account> GetByIdAsync(int id)
         {
             Account account = null;

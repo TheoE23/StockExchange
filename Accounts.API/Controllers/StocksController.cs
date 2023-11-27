@@ -8,10 +8,12 @@ namespace Accounts.API.Controllers
     [ApiController]
     public class StocksController : BaseController<Stocks>
     {
-        public StocksController(IStockRepository repository) : base(repository)
+        private readonly IStockRepository _stockRepository;
+
+        public StocksController(IStockRepository stockRepository) : base(stockRepository)
         {
+            _stockRepository = stockRepository;
         }
     }
-
-
 }
+
