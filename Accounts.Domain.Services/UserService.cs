@@ -46,8 +46,11 @@ namespace Accounts.Domain.Services
         {
             return await _userRepository.GetByUsername(username);
         }
+        public async Task<Users> GetByIdAsync(int UserID)
+        {
+            return await _userRepository.GetByIdAsync(UserID);
+        }
 
-       
     }
 
 }

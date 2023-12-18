@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Accounts.Domain.Abstraction.Services
 {
-    internal class IAccountServices
+    public interface IAccountServices
     {
     }
 }

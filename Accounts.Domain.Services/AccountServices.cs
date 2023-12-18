@@ -1,6 +1,8 @@
-﻿namespace Accounts.Domain.Services
+﻿using Accounts.Domain.Abstraction.Services;
+
+namespace Accounts.Domain.Services
 {
-    public class AccountServices
+    public class AccountServices : IAccountServices
     {
 
     }

@@ -9,6 +9,9 @@ namespace Accounts.Domain.Interfaces
 {
     public interface IAccountRepository : IRepository<Account>
     {
+        Task CreateAsync(Account accounts);
         Task<decimal> GetBalanceAsync(int UserID);
+        Task UpdateAsync(Account accounts);
+        Task<Account> GetByUserIdAsync(int UserID);
     }
 }

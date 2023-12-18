@@ -14,6 +14,8 @@ namespace Accounts.Domain.Abstraction.Services
         Task RegisterUser(string username, string password);
         Task<bool> AuthenticateUser(string username, string password);
         Task<Users> GetUserByUsername(string username);
+        Task<Users> GetByIdAsync(int userId);
+
 
     }
 

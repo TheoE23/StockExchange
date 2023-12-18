@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Accounts.Domain.Abstraction.Services
 {
-    internal class IWalletServices
+    public interface IWalletServices
     {
+        Task<bool> DepositAsync(int UserID, decimal Amount);
     }
 }

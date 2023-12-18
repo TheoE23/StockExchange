@@ -122,7 +122,7 @@ namespace Accounts.Infrastructure.Repositories
 
             return accounts;
         }
-        public async Task<Account> GetByIdAsync(int id)
+        public async Task<Account> GetByUserIdAsync(int UserID)
         {
             Account account = null;
 
@@ -131,7 +131,7 @@ namespace Accounts.Infrastructure.Repositories
                 await connection.OpenAsync();
                 using (var command = new SqlCommand($"SELECT * FROM {TableName} WHERE AccountID = @AccountID", connection))
                 {
-                    command.Parameters.AddWithValue("@AccountID", id);
+                    command.Parameters.AddWithValue("@AccountID", UserID);
 
                     using (var reader = await command.ExecuteReaderAsync())
                     {
@@ -146,7 +146,7 @@ namespace Accounts.Infrastructure.Repositories
             return account;
         }
 
-
+       
     }
 
 }

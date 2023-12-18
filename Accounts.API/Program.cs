@@ -4,6 +4,8 @@ using Accounts.Infrastructure.DatabaseConnections;
 using Accounts.Domain.Services;
 using Microsoft.AspNetCore.Identity;
 using Accounts.Domain.Abstraction.Services;
+using System.Reflection;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +27,13 @@ builder.Services.AddScoped<IPasswordHashing, PasswordHashing>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IAuthService, AuthenticationService>();
 
+builder.Services.AddScoped<IUserServices, UserService>();
+builder.Services.AddScoped<IWalletServices, WalletService>();
+builder.Services.AddScoped<ITransactionServices, TransactionServices>();
+builder.Services.AddScoped<IAccountServices, AccountServices>();
+builder.Services.AddScoped<IStockServices,StockServices>();
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -40,6 +49,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
