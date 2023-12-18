@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj": {}
+    "C:\\Users\\User\\OneDrive\\Работен плот\\Университет\\3 семестър\\Изграждане на API\\Repositories\\StockExchange\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj": {
+    "C:\\Users\\User\\OneDrive\\Работен плот\\Университет\\3 семестър\\Изграждане на API\\Repositories\\StockExchange\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj",
+        "projectUniqueName": "C:\\Users\\User\\OneDrive\\Работен плот\\Университет\\3 семестър\\Изграждане на API\\Repositories\\StockExchange\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj",
         "projectName": "StockExchange.StockAPI",
-        "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj",
-        "packagesPath": "C:\\Users\\Teodor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.StockAPI\\obj\\",
+        "projectPath": "C:\\Users\\User\\OneDrive\\Работен плот\\Университет\\3 семестър\\Изграждане на API\\Repositories\\StockExchange\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\OneDrive\\Работен плот\\Университет\\3 семестър\\Изграждане на API\\Repositories\\StockExchange\\StockExchange\\StockExchange.StockAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Teodor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,9 +40,21 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.Data.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.118, )"
             }
           },
           "imports": [
@@ -64,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
