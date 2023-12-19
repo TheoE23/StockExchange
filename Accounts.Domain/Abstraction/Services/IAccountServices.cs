@@ -8,5 +8,7 @@ namespace Accounts.Domain.Abstraction.Services
 {
     public interface IAccountServices
     {
+        Task FundAccountAsync(int UserID, decimal amount, string currency);
+        Task PurchaseStockAsync(int UserID, string stockName, int quantity, decimal currentPrice);
     }
 }

@@ -19,7 +19,7 @@ namespace Accounts.Domain.Services
         {
             try
             {
-                // Retrieve the user's account
+                
                 var userAccount = await _accountRepository.GetByUserIdAsync(UserID);
 
                 if (userAccount == null)

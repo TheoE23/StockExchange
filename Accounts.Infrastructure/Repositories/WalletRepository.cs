@@ -15,14 +15,14 @@ namespace Accounts.Infrastructure.Repositories
         private readonly DatabaseConnections.DatabaseConnection _dbConnection;
 
         public WalletRepository(DatabaseConnections.DatabaseConnection dbConnection)
-            : base(dbConnection.ConnectionString)
+            : base(dbConnection)
         {
             _dbConnection = dbConnection;
         }
         protected override string TableName => "wallets";
         public  async Task CreateAsync(Wallets wallets)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 var command = new SqlCommand($"INSERT INTO {TableName} (UserID, StockID, Quantity, PurchasePrice) VALUES (@UserID, @StockID, @Quantity, @PurchasePrice)", connection);
@@ -36,7 +36,7 @@ namespace Accounts.Infrastructure.Repositories
         public async Task<decimal> GetTotalPurchasePriceForWalletAsync(int WalletID)
         {
             decimal totalPurchasePrice = 0;
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 var sql = "SELECT SUM(PurchasePrice * Quantity) as TotalPurchasePrice FROM wallets WHERE WalletID = @WalletID GROUP BY WalletID";
                 using (var command = new SqlCommand(sql, connection))
@@ -56,7 +56,7 @@ namespace Accounts.Infrastructure.Repositories
         }
         public async Task UpdateAsync(Wallets wallets)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 var command = new SqlCommand($"UPDATE {TableName} SET UserID = @UserID, StockID = @StockID, Quantity = @Quantity, PurchasePrice = @PurchasePrice WHERE WalletID = @WalletID", connection);
@@ -85,7 +85,7 @@ namespace Accounts.Infrastructure.Repositories
         {
             List<Wallets> wallets = new List<Wallets>();
 
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand($"SELECT * FROM {TableName}", connection))
@@ -106,7 +106,7 @@ namespace Accounts.Infrastructure.Repositories
         {
             Wallets wallet = null;
 
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand($"SELECT * FROM {TableName} WHERE WalletID = @WalletID", connection))

@@ -15,15 +15,16 @@ namespace Accounts.Infrastructure.Repositories
 {
         public abstract class Repository<T>
         {
-            protected readonly string connectionString;
-            public Repository(string _connectionString)
-            {
-                connectionString = _connectionString;
-            }
-            protected abstract string TableName { get; }
+            protected readonly DatabaseConnections.DatabaseConnection _dbConnection;
+
+            public Repository(DatabaseConnections.DatabaseConnection dbConnection)
+                {
+            _dbConnection = dbConnection;
+                }
+        protected abstract string TableName { get; }
              public virtual async Task<IEnumerable<T>> GetAllAsync()
              {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = _dbConnection.Connect())
                 {
                     connection.Open();
 
@@ -34,7 +35,7 @@ namespace Accounts.Infrastructure.Repositories
 
                        while (await reader.ReadAsync())
                        {
-                                  entities.Add( Map(reader));
+                         entities.Add( Map(reader));
                        }
                        return entities;
                     }
@@ -42,7 +43,7 @@ namespace Accounts.Infrastructure.Repositories
              }
         public virtual async Task<T> GetByIdAsync(int id)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 connection.Open();
 
@@ -63,7 +64,7 @@ namespace Accounts.Infrastructure.Repositories
         }
         public virtual async Task DeleteAsync(int ID)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 connection.Open();
 

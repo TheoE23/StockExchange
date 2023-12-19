@@ -9,12 +9,11 @@ using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-
 builder.Services.AddControllers();
 
-var connectionString = "Server=localhost;Database=StockAccountSystem;User Id=sa; Password=sqldocker2022;";
+var connectionString = builder.Configuration.GetConnectionString("StocksConnection");
 builder.Services.AddScoped<DatabaseConnection>(_ => new DatabaseConnection(connectionString));
+
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IStockRepository, StockRepository>();
@@ -26,6 +25,7 @@ builder.Services.AddScoped<ICurrencyConverter, CurrencyConverter>();
 builder.Services.AddScoped<IPasswordHashing, PasswordHashing>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IAuthService, AuthenticationService>();
+builder.Services.AddScoped<IAuthorizationService, AuthorizationService>();
 
 builder.Services.AddScoped<IUserServices, UserService>();
 builder.Services.AddScoped<IWalletServices, WalletService>();
@@ -34,13 +34,14 @@ builder.Services.AddScoped<IAccountServices, AccountServices>();
 builder.Services.AddScoped<IStockServices,StockServices>();
 
 
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

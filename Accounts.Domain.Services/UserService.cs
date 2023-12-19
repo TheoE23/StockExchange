@@ -13,11 +13,13 @@ namespace Accounts.Domain.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IPasswordHashing _passwordHasher;
+        private readonly IAuthorizationService _authorizationService;
 
-        public UserService(IUserRepository userRepository, IPasswordHashing passwordHasher)
+        public UserService(IUserRepository userRepository, IPasswordHashing passwordHasher, IAuthorizationService authorizationService)
         {
             _userRepository = userRepository;
             _passwordHasher = passwordHasher;
+            _authorizationService = authorizationService;
         }
 
         public async Task RegisterUser(string UserName, string UserPassword)

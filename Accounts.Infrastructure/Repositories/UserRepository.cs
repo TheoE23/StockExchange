@@ -15,14 +15,14 @@ namespace Accounts.Infrastructure.Repositories
     {
         private readonly DatabaseConnections.DatabaseConnection _dbConnection;
         public UserRepository(DatabaseConnections.DatabaseConnection dbConnection)
-            : base(dbConnection.ConnectionString)
+            : base(dbConnection)
         {
             _dbConnection = dbConnection;
         }
         protected override string TableName => "Users";
         public async Task CreateAsync(Users entity)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 var command = new SqlCommand($"INSERT INTO {TableName} (UserName, UserPassword, Email, Birthday) VALUES (@UserName, @UserPassword, @Email, @Birthday)", connection);
@@ -35,7 +35,7 @@ namespace Accounts.Infrastructure.Repositories
         }
         public async Task UpdateAsync(Users users)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 var command = new SqlCommand($"UPDATE {TableName} SET UserName = @UserName, UserPassword = @UserPassword, Email = @Email, Birthday = @Birthday WHERE UserID = @UserID", connection);
@@ -61,7 +61,7 @@ namespace Accounts.Infrastructure.Repositories
         {
             List<Users> users = new List<Users>();
 
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand($"SELECT * FROM {TableName}", connection))
@@ -81,7 +81,7 @@ namespace Accounts.Infrastructure.Repositories
         public async Task<Users> GetByIdAsync(int ID)
         {
             Users user = null;
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand($"SELECT * FROM {TableName} WHERE UserID = @UserID", connection))
@@ -101,7 +101,7 @@ namespace Accounts.Infrastructure.Repositories
         }
         public async Task<Users> GetByUsername(string username)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand($"SELECT * FROM {TableName} WHERE UserName = @UserName", connection))
@@ -123,7 +123,7 @@ namespace Accounts.Infrastructure.Repositories
         {
             Users user = null;
 
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand($"SELECT * FROM {TableName} WHERE UserName = @UserName AND UserPassword = @UserPassword", connection))
@@ -141,7 +141,7 @@ namespace Accounts.Infrastructure.Repositories
                 }
             }
             return user;
-        
+
         }
     }
 }

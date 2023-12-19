@@ -28,7 +28,6 @@ namespace Accounts.Domain.Services
             {
                 return null; 
             }
-
             
             var token = _jwtService.GenerateToken(user.UserID, user.UserName);
 
@@ -36,7 +35,6 @@ namespace Accounts.Domain.Services
         }
         public async Task<bool> RegisterAsync(string userName, string userPassword)
         {
-            
             var existingUser = await _userRepository.GetByUsername(userName);
             if (existingUser != null)
             {

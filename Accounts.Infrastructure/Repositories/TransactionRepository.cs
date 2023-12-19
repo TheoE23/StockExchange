@@ -15,7 +15,7 @@ namespace Accounts.Infrastructure.Repositories
     {
         private readonly DatabaseConnections.DatabaseConnection _dbConnection;
         public TransactionRepository(DatabaseConnections.DatabaseConnection dbConnection)
-            : base(dbConnection.ConnectionString)
+            : base(dbConnection)
         {
             _dbConnection = dbConnection;
         }
@@ -23,7 +23,7 @@ namespace Accounts.Infrastructure.Repositories
         public IEnumerable<Transactions> GetTransactionsByType(string transactionType)
         {
             var transactions = new List<Transactions>();
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 var sql = "SELECT * FROM Transactions WHERE TransactionType = @transactionType";
                 using (var command = new SqlCommand(sql, connection))
@@ -88,7 +88,7 @@ namespace Accounts.Infrastructure.Repositories
         }
         public async Task CreateAsync(Transactions transactions)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 var command = new SqlCommand($"INSERT INTO {TableName} (UserID, UserName, StockID, StockName, Quantity, Price, TransactionType, TransactionDate) VALUES (@UserID, @UserName, @StockID, @StockName, @Quantity, @Price, @TransactionType, @TransactionDate)", connection);
@@ -105,7 +105,7 @@ namespace Accounts.Infrastructure.Repositories
         }
         public async Task UpdateAsync(Transactions transactions)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 var command = new SqlCommand($"UPDATE {TableName} SET UserID = @UserID, UserName = @UserName, StockID = @StockID, StockName = @StockName, Quantity = @Quantity, Price = @Price, TransactionType = @TransactionType, TransactionDate = @TransactionDate WHERE TransactionID = @TransactionID", connection);
@@ -125,7 +125,7 @@ namespace Accounts.Infrastructure.Repositories
         {
             List<Transactions> transactions = new List<Transactions>();
 
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand($"SELECT * FROM {TableName}", connection))
@@ -146,7 +146,7 @@ namespace Accounts.Infrastructure.Repositories
         {
             Transactions transaction = null;
 
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand($"SELECT * FROM {TableName} WHERE TransactionID = @TransactionID", connection))

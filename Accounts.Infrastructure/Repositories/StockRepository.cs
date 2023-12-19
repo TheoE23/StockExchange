@@ -16,7 +16,7 @@ namespace Accounts.Infrastructure.Repositories
         private readonly DatabaseConnections.DatabaseConnection _dbConnection;
         private readonly ICurrencyConverter _currencyConverter;
         public StockRepository(DatabaseConnections.DatabaseConnection dbConnection, ICurrencyConverter currencyConverter)
-            : base(dbConnection.ConnectionString)
+            : base(dbConnection)
         {
             _dbConnection = dbConnection;
             _currencyConverter = currencyConverter;
@@ -24,7 +24,7 @@ namespace Accounts.Infrastructure.Repositories
         protected override string TableName => "stocks";
         public async Task UpdateAsync(Stocks stocks)
         {
-             using (var connection = new SqlConnection(connectionString))
+             using (var connection = _dbConnection.Connect())
              {
                 connection.Open();
                 using (var command = new SqlCommand($"UPDATE {TableName} SET StockName = @StockName, CurrentPrice = @CurrentPrice, Quantity = @Quantity, Currency = @Currency WHERE StockID = @StockID", connection))
@@ -47,7 +47,7 @@ namespace Accounts.Infrastructure.Repositories
         }
         public async Task<Stocks> GetStockByNameAsync(string StockName)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 connection.Open();
                 using (var command = new SqlCommand($"SELECT * FROM {TableName} WHERE StockName = @StockName", connection))
@@ -100,7 +100,7 @@ namespace Accounts.Infrastructure.Repositories
         }
         public async Task CreateAsync(Stocks stocks)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 connection.Open();
                 using (var command = new SqlCommand($"INSERT INTO {TableName} (StockName, CurrentPrice, Quantity, Currency) VALUES (@StockName, @CurrentPrice, @Quantity, @Currency)", connection))

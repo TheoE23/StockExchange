@@ -31,7 +31,6 @@ namespace Accounts.Domain.Services
                 return "User not found";
             }
 
-
             var accountBalance = _accountRepository.GetBalanceAsync(UserID).Result;
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
@@ -46,7 +45,7 @@ namespace Accounts.Domain.Services
                 new Claim(ClaimTypes.Name, UserName),
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.DateOfBirth, user.Birthday.ToString("yyyy-MM-dd")),
-                    
+               
                 },
                 expires: DateTime.Now.AddHours(2),
                 signingCredentials: credentials

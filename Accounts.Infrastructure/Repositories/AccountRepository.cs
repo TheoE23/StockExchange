@@ -17,7 +17,7 @@ namespace Accounts.Infrastructure.Repositories
         private readonly DatabaseConnections.DatabaseConnection _dbConnection;
         private readonly ICurrencyConverter _currencyConverter;
         public AccountRepository(DatabaseConnections.DatabaseConnection dbConnection, ICurrencyConverter currencyConverter)
-            : base(dbConnection.ConnectionString)
+            : base(dbConnection)
         {
             _dbConnection = dbConnection;
             _currencyConverter = currencyConverter;
@@ -25,7 +25,7 @@ namespace Accounts.Infrastructure.Repositories
         protected override string TableName => "accounts";
         public async Task CreateAsync(Account accounts)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 connection.Open();
                 using (var command = new SqlCommand($"INSERT INTO {TableName} (UserID, AccountBalance, Currency) VALUES (@UserID, @AccountBalance, @Currency)", connection))
@@ -48,7 +48,7 @@ namespace Accounts.Infrastructure.Repositories
         public async Task<decimal> GetBalanceAsync(int UserID)
         {
             decimal totalBalance = 0;
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 var sql = "SELECT SUM(AccountBalance) as TotalBalance FROM accounts WHERE UserID = @UserID";
                 using (var command = new SqlCommand(sql, connection))
@@ -69,7 +69,7 @@ namespace Accounts.Infrastructure.Repositories
         }
         public async Task UpdateAsync(Account accounts)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 connection.Open();
                 using (var command = new SqlCommand($"UPDATE {TableName} SET UserID = @UserID, AccountBalance = @AccountBalance, Currency = @Currency WHERE AccountID = @AccountID", connection))
@@ -104,7 +104,7 @@ namespace Accounts.Infrastructure.Repositories
         {
             List<Account> accounts = new List<Account>();
 
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand($"SELECT * FROM {TableName}", connection))
@@ -126,7 +126,7 @@ namespace Accounts.Infrastructure.Repositories
         {
             Account account = null;
 
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = _dbConnection.Connect())
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand($"SELECT * FROM {TableName} WHERE AccountID = @AccountID", connection))

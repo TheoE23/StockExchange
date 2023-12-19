@@ -18,14 +18,25 @@ namespace Accounts.Infrastructure.DatabaseConnections
         }
         public string ConnectionString => _connectionString;
 
-        public bool Connect()
+        public SqlConnection Connect()
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            try
             {
-                connection.Open();
-                return true;
+                SqlConnection connection = new SqlConnection(_connectionString);
+                    connection.Open();
+                    return connection;
+                
+            }
+            catch (SqlException ex)
+            {
+               
+                Console.WriteLine("Error with connection: " + ex.Message);
+                return null;
             }
         }
     }
 }
+
+
+
 

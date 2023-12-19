@@ -11,7 +11,6 @@ namespace Accounts.Domain.Services
     public class CurrencyConverter : ICurrencyConverter
     {
         private Dictionary<string, decimal> exchangeRates;
-
         public CurrencyConverter()
         {
            
@@ -24,7 +23,6 @@ namespace Accounts.Domain.Services
        
             };
         }
-
         public decimal Convert(decimal amount, string fromCurrency, string toCurrency)
         {
             if (!exchangeRates.ContainsKey(fromCurrency) || !exchangeRates.ContainsKey(toCurrency))
@@ -36,7 +34,6 @@ namespace Accounts.Domain.Services
             decimal amountInUsd = amount / exchangeRates[fromCurrency];
             return amountInUsd * exchangeRates[toCurrency];
         }
-
         public void UpdateExchangeRate(string currency, decimal newRate)
         {
             if (!exchangeRates.ContainsKey(currency))
