@@ -229,11 +229,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.Accounts\\StockExchange.Accounts.csproj",
+      "projectUniqueName": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Accounts\\StockExchange.Accounts.csproj",
       "projectName": "StockExchange.Accounts",
-      "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.Accounts\\StockExchange.Accounts.csproj",
+      "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Accounts\\StockExchange.Accounts.csproj",
       "packagesPath": "C:\\Users\\Teodor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.Accounts\\obj\\",
+      "outputPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Accounts\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Teodor\\AppData\\Roaming\\NuGet\\NuGet.Config",

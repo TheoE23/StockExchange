@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "8HvMMuL7SNDgkHAlPd1aAKHT/RsIAmKJ4JGasGCPGq4=",
+  "Source": "StockExchange.Gateway",
+  "BasePath": "_content/StockExchange.Gateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

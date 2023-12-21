@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vkovEbwd23kmwkmuKvrRUl+TF9xhGhewlLKlr1yhoDJbNBNRgk1V/kkVHU3AwP1DLHnMZL5HSo/FL5NGy9viLQ==",
+  "dgSpecHash": "Z1e0zkVOZwnfCgTg4+w9MyJ3QrRYgJsUd2riC1dlCQqnw1JZFBVq9GltA6GFzst2H8/RZNwo1U6Rf8WlaP3uow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.SettlementMS\\StockExchange.SettlementMS.csproj",
+  "projectFilePath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.SettlementMS\\StockExchange.SettlementMS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Teodor\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Teodor\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

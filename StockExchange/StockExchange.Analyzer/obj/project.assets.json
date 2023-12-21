@@ -229,11 +229,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.Analyzer\\StockExchange.Analyzer.csproj",
+      "projectUniqueName": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Analyzer\\StockExchange.Analyzer.csproj",
       "projectName": "StockExchange.Analyzer",
-      "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.Analyzer\\StockExchange.Analyzer.csproj",
+      "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Analyzer\\StockExchange.Analyzer.csproj",
       "packagesPath": "C:\\Users\\Teodor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.Analyzer\\obj\\",
+      "outputPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Analyzer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Teodor\\AppData\\Roaming\\NuGet\\NuGet.Config",

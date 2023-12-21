@@ -88,6 +88,16 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "StockExchange.Gateway.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/StockExchange.Gateway.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StockExchange.Gateway.Services.dll": {}
+        }
       }
     }
   },
@@ -216,10 +226,16 @@
         "swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "StockExchange.Gateway.Services/1.0.0": {
+      "type": "project",
+      "path": "../StockExchange.Gateway.Services/StockExchange.Gateway.Services.csproj",
+      "msbuildProject": "../StockExchange.Gateway.Services/StockExchange.Gateway.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "StockExchange.Gateway.Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -229,11 +245,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.Gateway\\StockExchange.Gateway.csproj",
+      "projectUniqueName": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway\\StockExchange.Gateway.csproj",
       "projectName": "StockExchange.Gateway",
-      "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.Gateway\\StockExchange.Gateway.csproj",
+      "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway\\StockExchange.Gateway.csproj",
       "packagesPath": "C:\\Users\\Teodor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.Gateway\\obj\\",
+      "outputPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Teodor\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -249,7 +265,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway.Services\\StockExchange.Gateway.Services.csproj": {
+              "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.Gateway.Services\\StockExchange.Gateway.Services.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

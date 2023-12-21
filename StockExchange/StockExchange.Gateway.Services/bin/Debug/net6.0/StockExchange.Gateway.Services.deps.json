@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "StockExchange.Gateway.Services/1.0.0": {
+        "runtime": {
+          "StockExchange.Gateway.Services.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "StockExchange.Gateway.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

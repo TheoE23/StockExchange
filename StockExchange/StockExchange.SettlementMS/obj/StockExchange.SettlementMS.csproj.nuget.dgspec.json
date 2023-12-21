@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.SettlementMS\\StockExchange.SettlementMS.csproj": {}
+    "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.SettlementMS\\StockExchange.SettlementMS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.SettlementMS\\StockExchange.SettlementMS.csproj": {
+    "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.SettlementMS\\StockExchange.SettlementMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.SettlementMS\\StockExchange.SettlementMS.csproj",
+        "projectUniqueName": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.SettlementMS\\StockExchange.SettlementMS.csproj",
         "projectName": "StockExchange.SettlementMS",
-        "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.SettlementMS\\StockExchange.SettlementMS.csproj",
+        "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.SettlementMS\\StockExchange.SettlementMS.csproj",
         "packagesPath": "C:\\Users\\Teodor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.SettlementMS\\obj\\",
+        "outputPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.SettlementMS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Teodor\\AppData\\Roaming\\NuGet\\NuGet.Config",

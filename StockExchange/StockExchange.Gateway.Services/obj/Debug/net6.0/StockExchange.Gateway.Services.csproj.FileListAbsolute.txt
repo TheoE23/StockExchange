@@ -1,0 +1,11 @@
+C:\Users\vasan\Desktop\asdfff\StockExchange\StockExchange\StockExchange.Gateway.Services\bin\Debug\net6.0\StockExchange.Gateway.Services.deps.json
+C:\Users\vasan\Desktop\asdfff\StockExchange\StockExchange\StockExchange.Gateway.Services\bin\Debug\net6.0\StockExchange.Gateway.Services.dll
+C:\Users\vasan\Desktop\asdfff\StockExchange\StockExchange\StockExchange.Gateway.Services\bin\Debug\net6.0\StockExchange.Gateway.Services.pdb
+C:\Users\vasan\Desktop\asdfff\StockExchange\StockExchange\StockExchange.Gateway.Services\obj\Debug\net6.0\StockExchange.Gateway.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vasan\Desktop\asdfff\StockExchange\StockExchange\StockExchange.Gateway.Services\obj\Debug\net6.0\StockExchange.Gateway.Services.AssemblyInfoInputs.cache
+C:\Users\vasan\Desktop\asdfff\StockExchange\StockExchange\StockExchange.Gateway.Services\obj\Debug\net6.0\StockExchange.Gateway.Services.AssemblyInfo.cs
+C:\Users\vasan\Desktop\asdfff\StockExchange\StockExchange\StockExchange.Gateway.Services\obj\Debug\net6.0\StockExchange.Gateway.Services.csproj.CoreCompileInputs.cache
+C:\Users\vasan\Desktop\asdfff\StockExchange\StockExchange\StockExchange.Gateway.Services\obj\Debug\net6.0\StockExchange.Gateway.Services.dll
+C:\Users\vasan\Desktop\asdfff\StockExchange\StockExchange\StockExchange.Gateway.Services\obj\Debug\net6.0\refint\StockExchange.Gateway.Services.dll
+C:\Users\vasan\Desktop\asdfff\StockExchange\StockExchange\StockExchange.Gateway.Services\obj\Debug\net6.0\StockExchange.Gateway.Services.pdb
+C:\Users\vasan\Desktop\asdfff\StockExchange\StockExchange\StockExchange.Gateway.Services\obj\Debug\net6.0\ref\StockExchange.Gateway.Services.dll

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj": {}
+    "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj": {
+    "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj",
         "projectName": "StockExchange.StockAPI",
-        "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj",
+        "projectPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.StockAPI\\StockExchange.StockAPI.csproj",
         "packagesPath": "C:\\Users\\Teodor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange.StockAPI\\obj\\",
+        "outputPath": "C:\\Users\\Teodor\\source\\repos\\StockExchange\\StockExchange\\StockExchange.StockAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Teodor\\AppData\\Roaming\\NuGet\\NuGet.Config",
